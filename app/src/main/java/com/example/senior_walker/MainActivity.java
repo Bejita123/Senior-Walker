@@ -1,18 +1,12 @@
 package com.example.senior_walker;
 
-<<<<<<< HEAD
 import android.support.v7.app.AppCompatActivity;
-=======
->>>>>>> Seong-Jae
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-<<<<<<< HEAD
-=======
-import android.support.v7.app.AppCompatActivity;
->>>>>>> Seong-Jae
 import android.view.MenuItem;
 
 
