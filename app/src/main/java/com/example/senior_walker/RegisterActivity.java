@@ -2,6 +2,7 @@ package com.example.senior_walker;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.content.Intent;
@@ -25,14 +26,14 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
+        ActionBar ab = getSupportActionBar();
+        ab.hide();// 액션 바 지우기
 
         TextView registerButton = (TextView)findViewById(R.id.regBtn);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                 signUp();
-               // RegisterActivity.this.startActivity(registerIntent);
             }
         });
 
@@ -46,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
         if(email.length() > 0 && password.length() > 0 && passwordCheck.length() > 0){
             if(password.equals(passwordCheck)){
                 final RelativeLayout loaderLayout = findViewById(R.id.loaderLyaout);
-              //  loaderLayout.setVisibility(View.VISIBLE);
+                loaderLayout.setVisibility(View.VISIBLE);
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                             @Override

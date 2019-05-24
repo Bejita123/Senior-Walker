@@ -3,6 +3,7 @@ package com.example.senior_walker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
@@ -19,11 +20,12 @@ import static com.example.senior_walker.Utill.showToast;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ActionBar ab = getSupportActionBar();
+        ab.hide();// 액션 바 지우기
 
         mAuth = FirebaseAuth.getInstance();
         TextView loginBtn = (TextView)findViewById(R.id.loginBtn);
@@ -54,12 +56,12 @@ public class LoginActivity extends AppCompatActivity {
 
         if (email.length() > 0 && password.length() > 0) {
             final RelativeLayout loaderLayout = findViewById(R.id.loaderLyaout);
-           // loaderLayout.setVisibility(View.VISIBLE);
+            loaderLayout.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                           //loaderLayout.setVisibility(View.GONE);
+                           loaderLayout.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 showToast(LoginActivity.this, "로그인에 성공하였습니다.");

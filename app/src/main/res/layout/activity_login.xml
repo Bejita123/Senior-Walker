@@ -6,11 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
