@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "80346939020",
+    "firebase_url": "https://senior-walker.firebaseio.com",
+    "project_id": "senior-walker",
+    "storage_bucket": "senior-walker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80346939020:android:d26d6cbce5c1a089",
+        "android_client_info": {
+          "package_name": "com.example.senior_walker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80346939020-qebmtono93arosul4e3j2cqu1h03mudl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARyGxpgndhs6voA0D7WjOafSDoAtbWpsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80346939020-qebmtono93arosul4e3j2cqu1h03mudl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
