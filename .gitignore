@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/java,kotlin,android,androidstudio
-# Edit at https://www.gitignore.io/?templates=java,kotlin,android,androidstudio
+# Created by https://www.gitignore.io/api/java,android,firebase,androidstudio
+# Edit at https://www.gitignore.io/?templates=java,android,firebase,androidstudio
 
 ### Android ###
 # Built application files
@@ -196,6 +196,15 @@ fabric.properties
 
 !/gradle/wrapper/gradle-wrapper.jar
 
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+
 ### Java ###
 # Compiled class file
 
@@ -215,17 +224,4 @@ fabric.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 
-### Kotlin ###
-# Compiled class file
-
-# Log file
-
-# BlueJ files
-
-# Mobile Tools for Java (J2ME)
-
-# Package Files #
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-
-# End of https://www.gitignore.io/api/java,kotlin,android,androidstudio
+# End of https://www.gitignore.io/api/java,android,firebase,androidstudio
