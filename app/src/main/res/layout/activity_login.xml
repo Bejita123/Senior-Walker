@@ -54,7 +54,7 @@
                 android:background="@color/colorPrimary"
                 android:drawableStart="@drawable/ic_person_black_24dp"
                 android:drawableLeft="@drawable/ic_person_black_24dp"
-                android:hint="아이디"
+                android:hint="아이디(xxx@naver.com)"
                 android:inputType="none"
                 android:padding="10dp"
                 android:textColor="#ffffff"
