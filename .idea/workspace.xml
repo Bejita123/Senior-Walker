@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edab6991-7e95-4e30-bbd9-b668f2681654" name="Default Changelist" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/RecyclerAdapter.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/RecyclerData.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_content.xml" afterDir="false" />
@@ -25,6 +26,12 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_bottom2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_bottom2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+>>>>>>> parent of e418e26... error confirm
 =======
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -65,6 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
               <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
@@ -82,12 +90,17 @@
           </provider>
           <provider editor-type-id="android-designer2" />
 =======
+=======
+>>>>>>> parent of e418e26... error confirm
           <provider selected="true" editor-type-id="android-designer2" />
           <provider editor-type-id="text-editor">
             <state relative-caret-position="380">
               <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
             </state>
           </provider>
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
         </entry>
       </file>
@@ -115,8 +128,13 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_bottom1.xml">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="95">
               <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+=======
+            <state relative-caret-position="190">
+              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+>>>>>>> parent of e418e26... error confirm
 =======
             <state relative-caret-position="190">
               <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
@@ -130,8 +148,13 @@
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="209">
               <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+=======
+            <state relative-caret-position="217">
+              <caret line="220" column="5" lean-forward="true" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
+>>>>>>> parent of e418e26... error confirm
 =======
             <state relative-caret-position="217">
               <caret line="220" column="5" lean-forward="true" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
@@ -141,17 +164,23 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/Bottom3Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="8" selection-start-column="8" selection-end-column="33" />
 =======
+=======
+>>>>>>> parent of e418e26... error confirm
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="293">
               <caret line="561" column="10" lean-forward="true" selection-start-line="561" selection-start-column="10" selection-end-line="561" selection-end-column="10" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
             </state>
           </provider>
@@ -161,8 +190,13 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/Bottom2Fragment.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="304">
               <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+=======
+            <state relative-caret-position="665">
+              <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
+>>>>>>> parent of e418e26... error confirm
 =======
             <state relative-caret-position="665">
               <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
@@ -209,7 +243,10 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of e418e26... error confirm
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
           <provider editor-type-id="android-designer2" />
@@ -255,6 +292,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/LoginActivity.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/app/src/main/java/RecyclerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/recycler_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/RecyclerData.java" />
@@ -285,10 +323,18 @@
       </list>
     </option>
   </component>
+=======
+      </list>
+    </option>
+  </component>
+>>>>>>> parent of e418e26... error confirm
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="width" value="978" />
     <option name="height" value="1039" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
   </component>
   <component name="ProjectView">
@@ -297,7 +343,13 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+>>>>>>> parent of e418e26... error confirm
 =======
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
@@ -324,6 +376,7 @@
               <item name="Senior-Walker" type="b2602c69:ProjectViewProjectNode" />
               <item name="Senior-Walker" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
 <<<<<<< HEAD
+<<<<<<< HEAD
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
@@ -338,6 +391,8 @@
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
 =======
+=======
+>>>>>>> parent of e418e26... error confirm
               <item name="gradle" type="462c0819:PsiDirectoryNode" />
 >>>>>>> parent of e418e26... error confirm
             </path>
@@ -346,8 +401,11 @@
         </subPane>
       </pane>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="AndroidView" />
+=======
+>>>>>>> parent of e418e26... error confirm
 =======
 >>>>>>> parent of e418e26... error confirm
     </panes>
@@ -360,6 +418,9 @@
 =======
     <property name="device.picker.selection" value="Nexus_5X_API_28" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../SNS_Project" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -475,7 +536,11 @@
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16845638" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1738255" />
+>>>>>>> parent of e418e26... error confirm
 =======
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1738255" />
 >>>>>>> parent of e418e26... error confirm
@@ -503,6 +568,9 @@
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49932885" visible="true" weight="0.3319149" />
       <window_info anchor="bottom" id="Find" order="8" />
       <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="0" sideWeight="0.5021521" side_tool="true" visible="true" weight="0.15771812" />
       <window_info anchor="right" id="Preview" order="1" />
@@ -518,7 +586,10 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of e418e26... error confirm
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -581,6 +652,9 @@
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_bottom.xml">
       <provider editor-type-id="android-designer2" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -594,7 +668,6 @@
           <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -624,6 +697,9 @@
 =======
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_bottom1.xml">
       <provider editor-type-id="android-designer2" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -670,6 +746,9 @@
           <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
         </state>
       </provider>
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/recycler_content.xml">
@@ -693,6 +772,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -721,12 +801,19 @@
         <state relative-caret-position="665">
           <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
 >>>>>>> parent of e418e26... error confirm
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/RegisterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="53" column="84" selection-start-line="53" selection-start-column="84" selection-end-line="53" selection-end-column="84" />
+>>>>>>> parent of e418e26... error confirm
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ddea808a2b961bfd58a4759d3a1cade0/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -857,6 +944,32 @@
             <element signature="e#2838#2839#0" expanded="true" />
           </folding>
 =======
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_loader.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="57" column="40" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="55" column="48" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> parent of e418e26... error confirm
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/senior_walker/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -868,6 +981,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="220" column="5" lean-forward="true" selection-start-line="220" selection-start-column="5" selection-end-line="220" selection-end-column="5" />
+<<<<<<< HEAD
+>>>>>>> parent of e418e26... error confirm
+=======
 >>>>>>> parent of e418e26... error confirm
         </state>
       </provider>

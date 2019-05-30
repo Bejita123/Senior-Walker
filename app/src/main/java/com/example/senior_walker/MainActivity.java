@@ -16,8 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private RecyclerAdapter adapter;
-//
+
     // FrameLayout에 각 메뉴의 Fragment를 바꿔 줌
     private FragmentManager fragmentManager = getSupportFragmentManager();
     // 4개의 메뉴에 들어갈 Fragment들
@@ -31,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        init();
-//        getData();
-//
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         // 첫 화면 지정
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -68,68 +65,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    private void init() {
-//        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-//
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//
-//        adapter = new RecyclerAdapter();
-//        recyclerView.setAdapter(adapter);
-//    }
-//
-//    private void getData() {
-//        // 임의의 데이터입니다.
-//        List<String> listTitle = Arrays.asList("테스트1", "테스트2", "테스트3", "테스트4", "테스트5", "테스트6", "테스트7", "테스트8",
-//                "테스트9", "테스트10", "테스트11", "테스트12", "테스트13", "테스트14", "테스트15", "테스트16");
-//        List<String> listContent = Arrays.asList(
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다.",
-//                "테스트입니다."
-//        );
-//        List<Integer> listResId = Arrays.asList(
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp,
-//                R.drawable.ic_email_black_24dp
-//        );
-//        for (int i = 0; i < listTitle.size(); i++) {
-//            // 각 List의 값들을 data 객체에 set 해줍니다.
-//            RecyclerData data = new RecyclerData();
-//            data.setTitle(listTitle.get(i));
-//            data.setContent(listContent.get(i));
-//            data.setResId(listResId.get(i));
-//
-//            // 각 값이 들어간 data를 adapter에 추가합니다.
-//            adapter.addItem(data);
-//        }
-//
-//        // adapter의 값이 변경되었다는 것을 알려줍니다.
-//        adapter.notifyDataSetChanged();
-//    }
+
 }
