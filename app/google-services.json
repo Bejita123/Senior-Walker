@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "80346939020",
-    "firebase_url": "https://senior-walker.firebaseio.com",
-    "project_id": "senior-walker",
-    "storage_bucket": "senior-walker.appspot.com"
+    "project_number": "430181713380",
+    "firebase_url": "https://senior-walker-2019.firebaseio.com",
+    "project_id": "senior-walker-2019",
+    "storage_bucket": "senior-walker-2019.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:80346939020:android:d26d6cbce5c1a089",
+        "mobilesdk_app_id": "1:430181713380:android:d26d6cbce5c1a089",
         "android_client_info": {
           "package_name": "com.example.senior_walker"
         }
       },
       "oauth_client": [
         {
-          "client_id": "80346939020-qebmtono93arosul4e3j2cqu1h03mudl.apps.googleusercontent.com",
+          "client_id": "430181713380-797ke62nqrka9h294qf3mqdol4eit395.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.senior_walker",
+            "certificate_hash": "e44988c7d4683fa4aa14c6bf38dfb9e002588101"
+          }
+        },
+        {
+          "client_id": "430181713380-oin5k4ftj3o38d35qmgibr5bs13h0kom.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyARyGxpgndhs6voA0D7WjOafSDoAtbWpsk"
+          "current_key": "AIzaSyA-Hr_WK9dqyQYehETYDfOJqPjQPNWMXw4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "80346939020-qebmtono93arosul4e3j2cqu1h03mudl.apps.googleusercontent.com",
+              "client_id": "430181713380-oin5k4ftj3o38d35qmgibr5bs13h0kom.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

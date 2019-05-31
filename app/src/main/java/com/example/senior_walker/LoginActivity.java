@@ -3,8 +3,10 @@ package com.example.senior_walker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -30,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // 구글로그인 result 상수
     private static final int RC_SIGN_IN = 900;
+    private static final String TAG = "";
 
     // 구글api클라이언트
     public GoogleSignInClient googleSignInClient;
@@ -38,7 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     // 구글  로그인 버튼
-    private SignInButton buttonGoogle;
+    //private SignInButton buttonGoogle;
+    private TextView buttonGoogle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +53,13 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         buttonGoogle = findViewById(R.id.btn_googleSignIn);
-        // Google 로그인을 앱에 통합
-        // GoogleSignInOptions 개체를 구성할 때 requestIdToken을 호출
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
 
-
-
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+
 
 
         TextView loginBtn = (TextView)findViewById(R.id.loginBtn);
@@ -70,13 +72,12 @@ public class LoginActivity extends AppCompatActivity {
                 LoginActivity.this.startActivity(registerIntent);
             }
         });
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         buttonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signInIntent = googleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, RC_SIGN_IN);
+                signIn();
             }
         });
 
@@ -89,6 +90,37 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+       // updateUI(currentUser);
+
+    }
+
+    private void signIn() {
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, RC_SIGN_IN);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e);
+                // ...
+            }
+        }
     }
 
     private void login() {
@@ -118,40 +150,33 @@ public class LoginActivity extends AppCompatActivity {
             showToast(LoginActivity.this, "이메일 또는 비밀번호를 입력해 주세요.");
         }
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        // 구글로그인 버튼 응답
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                // 구글 로그인 성공
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
 
-            }
-        }
-    }
-
-    // 사용자가 정상적으로 로그인한 후에 GoogleSignInAccount 개체에서 ID 토큰을 가져와서
-// Firebase 사용자 인증 정보로 교환하고 Firebase 사용자 인증 정보를 사용해 Firebase에 인증합니다.
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        Log.d(TAG, "Before Token");
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // 로그인 성공
-                            showToast(LoginActivity.this, "로그인 성공했습니다.");
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            myStartActivity(MainActivity.class);
+                            showToast(LoginActivity.this, "로그인에 성공하였습니다.");
+
                         } else {
-                            // 로그인 실패
-                            showToast(LoginActivity.this, "로그인 실패 했습니다.");
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            //Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                            //updateUI(null);
                         }
 
+                        // ...
                     }
                 });
     }
