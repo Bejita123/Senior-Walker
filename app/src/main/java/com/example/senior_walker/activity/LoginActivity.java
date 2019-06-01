@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 showToast(LoginActivity.this, "로그인에 성공하였습니다.");
-                                myStartActivity(Member_information.class);
+                                myStartActivity(WalkerMainActivity.class);
                             } else {
                                 if (task.getException() != null) {
                                     showToast(LoginActivity.this, "이메일 아이디 또는 비밀번호를 확인해주세요");
@@ -170,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            myStartActivity(Member_information.class);
+                            myStartActivity(WalkerMainActivity.class);
                             showToast(LoginActivity.this, "로그인에 성공하였습니다.");
 
                         } else {

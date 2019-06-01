@@ -1,28 +1,19 @@
 package com.example.senior_walker;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.example.senior_walker.Utill.showToast;
 
@@ -41,7 +32,7 @@ public class Member_information extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateProfile();
-                //myStartActivity(MainActivity.class);
+                //myStartActivity(WalkerMainActivity.class);
 
             }
         });
@@ -70,14 +61,14 @@ public class Member_information extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
 
                                 showToast(Member_information.this, "회원정보 등록 성공");
-                                myStartActivity(MainActivity.class);
+                                myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                showToast(Member_information.this, "회원정보 등록 실패");
-                               // myStartActivity(MainActivity.class);
+                               // myStartActivity(WalkerMainActivity.class);
 
                             }
                         });

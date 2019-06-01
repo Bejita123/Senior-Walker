@@ -8,11 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Bottom1Fragment extends Fragment {
+public class SpecificProfile extends Fragment {
+    public static SpecificProfile newInstance(){
+        return new SpecificProfile();
+    }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_bottom1, container, false);
+        //Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.specific_profile, container, false);
+
+        return v;
     }
 }
