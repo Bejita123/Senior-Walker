@@ -1,5 +1,6 @@
 package com.example.senior_walker;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,9 +10,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         // 첫 화면 지정
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_layout, bottom1Fragment).commitAllowingStateLoss();
+        //transaction.replace(R.id.frame_layout, bottom1Fragment).commitAllowingStateLoss();
 
         // bottomNavigationView의 아이템이 선택될 때 호출될 리스너 등록
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.navigation_menu1: {
-                        transaction.replace(R.id.frame_layout, bottom1Fragment).commitAllowingStateLoss();
+                        //transaction.replace(R.id.frame_layout, bottom1Fragment).commitAllowingStateLoss();
+                        Intent intent = new Intent(MainActivity.this, Bottom1Fragment.class);
+                        startActivity(intent);
                         break;
                     }
                     case R.id.navigation_menu2: {

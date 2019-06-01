@@ -4,49 +4,47 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Bottom1Fragment extends Fragment {
+public class Bottom1Fragment extends AppCompatActivity {
 
     private RecyclerAdapter adapter;
-    private RecyclerView recyclerView;
-    private ArrayList<RecyclerData> listData = new ArrayList<>();
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        getData();
-//    }
+    public static Bottom1Fragment newInstance(){
+        return new Bottom1Fragment();
+    }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_bottom1, container, false);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_bottom1);
 
-        //recyclerview
-        recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter(listData);
-
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
+        init();
 
         getData();
+    }
 
-        return v;
+    private void init() {
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        adapter = new RecyclerAdapter();
+        recyclerView.setAdapter(adapter);
     }
 
     private void getData() {

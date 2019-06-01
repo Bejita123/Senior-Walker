@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.example.senior_walker"
         minSdkVersion 15
         targetSdkVersion 28
@@ -37,5 +38,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     compile 'com.android.support:support-v4:28.0.0'
+
+    //vector이미지
+    compile 'com.android.support:appcompat-v7:28.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

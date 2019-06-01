@@ -45,5 +45,5 @@
         android:id="@+id/btnMore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="더보기 추가예정"/>
+        android:text="더보기"/>
 </LinearLayout>
