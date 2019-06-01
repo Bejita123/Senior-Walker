@@ -76,30 +76,39 @@
                 android:textColorHint="#ffffff" />
 
             <Button
+                android:id="@+id/loginBtn"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/loginBtn"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary"
                 android:text="로그인"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                />
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/btn_googleSignIn"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/google_img"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold" />
             <TextView
+                android:id="@+id/toRegBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="18dp"
                 android:layout_marginTop="10dp"
                 android:text="회원가입"
-                android:id="@+id/toRegBtn"
+                android:textSize="18dp"
 
                 />
-
         </LinearLayout>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

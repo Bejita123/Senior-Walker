@@ -19,10 +19,16 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA8EvDc_8gu37KbNM7e3DJLyMvecyrwVtM" />
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".WalkerMain"/>
+        <activity android:name=".WalkerMenu2"/>
+        <activity android:name=".WalkerMenu3"/>
+        <activity android:name=".WalkerMenu4"/>
+        <activity android:name=".DogMain"/>
+        <activity android:name=".DogMenu2"/>
+        <activity android:name=".DogMenu3"/>
+        <activity android:name=".DogMenu4"/>
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".SpecificProfile" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

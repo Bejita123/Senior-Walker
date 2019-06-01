@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Senior-Walker</string>
+    <string name="failed_login">LoginFail</string>
+    <string name="success_login">Login Success</string>
 </resources>
