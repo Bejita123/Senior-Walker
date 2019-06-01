@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "430181713380-797ke62nqrka9h294qf3mqdol4eit395.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.senior_walker",
-            "certificate_hash": "e44988c7d4683fa4aa14c6bf38dfb9e002588101"
-          }
-        },
-        {
           "client_id": "430181713380-oin5k4ftj3o38d35qmgibr5bs13h0kom.apps.googleusercontent.com",
           "client_type": 3
         }
