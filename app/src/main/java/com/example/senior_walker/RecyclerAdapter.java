@@ -17,6 +17,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
     @NonNull
     @Override
+    public RecyclerAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerAdapter.ItemViewHolder itemViewHolder, int i) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    public class ItemViewHolder extends RecyclerView.ViewHolder {
+        public ItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+    }
+/*
+    @NonNull
+    @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
@@ -55,9 +77,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            textView1 = itemView.findViewById(R.id.textView1);
-            textView2 = itemView.findViewById(R.id.textView2);
-            imageView = itemView.findViewById(R.id.imageView);
+          //  textView1 = itemView.findViewById(R.id.textView1);
+          //  textView2 = itemView.findViewById(R.id.textView2);
+           // imageView = itemView.findViewById(R.id.imageView);
         }
 
         void onBind(RecyclerData data) {
@@ -65,5 +87,5 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             textView2.setText(data.getContent());
             imageView.setImageResource(data.getResId());
         }
-    }
+    }*/
 }
