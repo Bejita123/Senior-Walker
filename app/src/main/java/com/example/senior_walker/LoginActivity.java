@@ -102,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
     }
 
     @Override
@@ -110,11 +111,14 @@ public class LoginActivity extends AppCompatActivity {
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
+           // showToast(LoginActivity.this, "1111");
+
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account);
+
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
@@ -138,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 showToast(LoginActivity.this, "로그인에 성공하였습니다.");
-                                myStartActivity(MainActivity.class);
+                                myStartActivity(Member_information.class);
                             } else {
                                 if (task.getException() != null) {
                                     showToast(LoginActivity.this, "이메일 아이디 또는 비밀번호를 확인해주세요");
@@ -166,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            myStartActivity(MainActivity.class);
+                            myStartActivity(Member_information.class);
                             showToast(LoginActivity.this, "로그인에 성공하였습니다.");
 
                         } else {
