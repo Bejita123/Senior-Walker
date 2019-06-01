@@ -8,6 +8,7 @@ public class Memberinfo {
     private String age;
     private String phoneNumber;
 
+    public Memberinfo(){}
     public Memberinfo(String name, String age,String phoneNumber){
 
         this.name = name;

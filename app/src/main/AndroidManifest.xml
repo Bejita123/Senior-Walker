@@ -29,7 +29,6 @@
         <activity android:name=".activity.Dog_bottom1" />
         <activity android:name=".activity.Walker_bottom2" />
         <activity android:name=".activity.Walker_bottom1" />
-        <activity android:name=".activity.Member_information" />
         <activity android:name=".activity.WalkerMainActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity">
