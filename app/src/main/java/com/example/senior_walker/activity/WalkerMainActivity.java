@@ -17,8 +17,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.senior_walker.Memberinfo;
 import com.example.senior_walker.R;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -29,6 +32,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import static com.example.senior_walker.Utill.showToast;
@@ -38,6 +44,7 @@ public class WalkerMainActivity extends AppCompatActivity {
     String name;
     String age;
     String phoneNumber;
+    String path;
     ImageView image;
     private FirebaseUser user;
 
@@ -71,6 +78,7 @@ public class WalkerMainActivity extends AppCompatActivity {
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
                 Log.d("성공", uri.toString());
+                path = uri.toString();
                 Glide.with(WalkerMainActivity.this).load(uri.toString()).centerCrop().override(500).into(image);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -140,16 +148,13 @@ public class WalkerMainActivity extends AppCompatActivity {
         age = ((EditText) findViewById(R.id.ageEditText)).getText().toString();
         phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
 
-
-
-
-        if (name.length() > 0 && age.length() > 0 &&  phoneNumber.length() > 9) {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if( path != null){
+            user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber);
+            Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber, path);
 
-            if(user != null){
+            if (user != null) {
                 db.collection("user").document(user.getUid())
                         .set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -168,15 +173,41 @@ public class WalkerMainActivity extends AppCompatActivity {
 
                             }
                         });
-
+            } else {
+                showToast(WalkerMainActivity.this, "회원정보를 모두 입력해주세요");
             }
+        }
+        else if (name.length() > 0 && age.length() > 0 && phoneNumber.length() > 9) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            user = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        } else {
+            Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber);
 
-            showToast(WalkerMainActivity.this, "회원정보를 모두 입력해주세요");
+            if (user != null) {
+                db.collection("user").document(user.getUid())
+                        .set(memberinfo)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                                showToast(WalkerMainActivity.this, "회원정보 등록 성공");
+                                myStartActivity(WalkerMainActivity.class);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                showToast(WalkerMainActivity.this, "회원정보 등록 실패");
+                                // myStartActivity(WalkerMainActivity.class);
+
+                            }
+                        });
+            } else {
+                showToast(WalkerMainActivity.this, "회원정보를 모두 입력해주세요");
+            }
         }
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to

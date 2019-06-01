@@ -37,6 +37,7 @@ public class DogMainActivity extends AppCompatActivity {
     String dog;
     String height;
     String weight;
+    String path;
     ImageView image;
 
     private FirebaseUser user;
@@ -74,6 +75,7 @@ public class DogMainActivity extends AppCompatActivity {
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
                 Log.d("성공", uri.toString());
+                path = uri.toString();
                 Glide.with(DogMainActivity.this).load(uri.toString()).centerCrop().override(500).into(image);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -143,9 +145,34 @@ public class DogMainActivity extends AppCompatActivity {
         height = ((EditText) findViewById(R.id.hightEditText)).getText().toString();
 
 
+        if(path != null){
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+            Petinfo petinfo = new Petinfo(dog, height, weight, path);
 
-        if (dog.length() > 0 && weight.length() > 0 &&  height.length() > 0) {
+            if(user != null) {
+                db.collection("pet").document(user.getUid())
+                        .set(petinfo)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                                showToast(DogMainActivity.this, "펫 정보 등록 성공");
+                                myStartActivity(WalkerMainActivity.class);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                showToast(DogMainActivity.this, "펫 정보 등록 실패");
+                                // myStartActivity(WalkerMainActivity.class);
+
+                            }
+                        });
+            }
+        }
+        else if (dog.length() > 0 && weight.length() > 0 &&  height.length() > 0) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
