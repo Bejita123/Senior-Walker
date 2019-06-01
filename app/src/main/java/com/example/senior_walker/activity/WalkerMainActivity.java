@@ -1,15 +1,11 @@
-package com.example.senior_walker;
+package com.example.senior_walker.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+
+import com.example.senior_walker.R;
 
 
 public class WalkerMainActivity extends AppCompatActivity {
@@ -26,7 +22,7 @@ public class WalkerMainActivity extends AppCompatActivity {
         findViewById(R.id.Walker_main_btn4).setOnClickListener(onClickListener);
 
 
-        
+
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override

@@ -1,9 +1,11 @@
-package com.example.senior_walker;
+package com.example.senior_walker.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.senior_walker.R;
 
 public class DogMainActivity extends AppCompatActivity {
 

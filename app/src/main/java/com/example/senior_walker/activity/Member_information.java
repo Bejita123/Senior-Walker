@@ -1,4 +1,4 @@
-package com.example.senior_walker;
+package com.example.senior_walker.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.senior_walker.Memberinfo;
+import com.example.senior_walker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

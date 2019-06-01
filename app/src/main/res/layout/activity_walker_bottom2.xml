@@ -4,6 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Walker_bottom2">
+    tools:context=".activity.Walker_bottom2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 산책"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <Button
+            android:id="@+id/Walker_main_btn1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="워커 모드"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_width="30dp" />
+
+        <Button
+            android:id="@+id/Walker_main_btn2"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="내 정보"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_width="30dp"/>
+
+        <Button
+            android:id="@+id/Walker_main_btn3"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="산책 신청"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_width="30dp"/>
+
+        <Button
+            android:id="@+id/Walker_main_btn4"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="내 산책"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_width="30dp"/>
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
