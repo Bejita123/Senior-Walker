@@ -67,7 +67,8 @@ public class CustomAdapter extends BaseAdapter {
 
         // 각 리스트에 뿌려줄 아이템을 받아오는데 mMyItem 재활용
         final MyItem myItem = getItem(pos);
-        Glide.with(context).load(myItem.getUrlpath()).centerCrop().override(500).into(iv_img);
+        iv_img.setImageResource(R.drawable.ic_pets_black_24dp);
+
 
         // 각 위젯에 세팅된 아이템을 뿌려준다
         tv_name.setText(myItem.getName());

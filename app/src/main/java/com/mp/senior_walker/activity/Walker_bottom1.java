@@ -29,6 +29,7 @@ import com.mp.senior_walker.info.Walkinfo;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Walker_bottom1 extends AppCompatActivity {
 
@@ -37,9 +38,6 @@ public class Walker_bottom1 extends AppCompatActivity {
     Memberinfo memberinfo;
     Walkinfo walkinfo;
     MyItem item;
-    int[] IMAGES = {R.drawable.marker,R.drawable.marker,R.drawable.marker,R.drawable.marker,R.drawable.marker,R.drawable.marker};
-    String[] NAMES = {"SEONGBEEN", "NAEUN", "SEONGJAE", "HYUNSEOK", "CHAEBEEN", "DONGSEOK"};
-    String[] RESIDENCE = {"중랑구", "광명", "성남", "금천구", "일산","울산"};
     int count=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +50,14 @@ public class Walker_bottom1 extends AppCompatActivity {
         findViewById(R.id.Walker_main_btn4).setOnClickListener(onClickListener);
 
         listView = findViewById(R.id.listView);
+       // getdata();
+        item = new MyItem();
 
+        getdata();
+
+    }
+
+    public  void getdata(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("walk")
@@ -63,30 +68,30 @@ public class Walker_bottom1 extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 count++;
-                                Log.d("wb1", document.getId() + " => " + document.getData() );
-                                Log.d("wb1", " count = " + count);
+                                Map<String, Object> data = document.getData();
+                                Log.d("wb1", String.valueOf(data));
 
-                                dataSetting(document.getId());
+                                item = new MyItem();
+                                item.setUid(document.getId());
+                                item.setName((String) data.get("date"));//시간
+                                item.setContents((String) data.get("location"));//장소
+                                mItems.add(item);
+                        }
+                            CustomAdapter customAdapter = new CustomAdapter(mItems);
+                            listView.setAdapter(customAdapter);
 
-                            }
                         } else {
                             Log.d("request", "Error getting documents: ", task.getException());
                         }
                     }
                 });
-
-        CustomAdapter customAdapter = new CustomAdapter(mItems);
-
-
-        listView.setAdapter(customAdapter);
     }
-
     private void dataSetting(String uid) {
         Log.d("wb1", " uid = "+ uid );
         item = new MyItem();
 
         item.setUid(uid);
-        
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("user").document(uid);
         docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -105,23 +110,7 @@ public class Walker_bottom1 extends AppCompatActivity {
 
                 }
             }
-        });/*
-        DocumentReference docRef2 = db.collection("walk").document(uid);
-        docRef2.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Walkinfo walk = documentSnapshot.toObject(Walkinfo.class);
-                if(walk != null){
-                    walkinfo = new Walkinfo(walk.getDate(),walk.getTime(),walk.getLocation());
-                    Log.d("wb1", " location =" + walkinfo.getLocation());
-                    item.setContents(walkinfo.getLocation());
-
-                }else{
-                    Log.d("wb1", " walk is null");
-
-                }
-            }
-        });*/
+        });
 
 
 
