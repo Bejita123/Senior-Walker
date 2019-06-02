@@ -107,11 +107,36 @@ public class SpecificProfile extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.regWalkBtn:
+                    update();
                     myStartActivity(Walker_bottom2.class);
                     break;
             }
         }
     };
+
+    private void update() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+        if (user != null) {
+
+            DocumentReference washingtonRef = db.collection("walk").document(uid);
+            washingtonRef
+                    .update("walker", user.getUid())
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                        }
+                    });
+        }
+    }
+
     private void myStartActivity(Class c) {
         Intent intent = new Intent(this, c);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

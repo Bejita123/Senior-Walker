@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.firestore.DocumentReference;
 import com.mp.senior_walker.R;
 import com.mp.senior_walker.info.Walkinfo;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -14,6 +15,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.security.acl.Owner;
 
 import static com.mp.senior_walker.Utill.showToast;
 
@@ -61,30 +64,30 @@ public class Dog_bottom1 extends AppCompatActivity {
 
 
             if (date.length() > 0 && time.length() > 0 && location.length() > 0) {
+
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                Walkinfo walkinfo = new Walkinfo(date, time, location);
 
-                if (user != null) {
-                    db.collection("walk").document(user.getUid())
-                            .set(walkinfo)
+                if(user != null) {
+
+                    DocumentReference washingtonRef = db.collection("walk").document(user.getUid());
+                    washingtonRef
+                            .update("date", date, "time", time, "location", location, "Owner", user.getUid())
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-
                                     showToast(Dog_bottom1.this, "산책 등록 성공");
-                                    //   myStartActivity(WalkerMainActivity.class);
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    showToast(Dog_bottom1.this, "산책 등록 실패");
-                                    // myStartActivity(WalkerMainActivity.class);
-
                                 }
                             });
+
+
+
                 }
 
             } else {

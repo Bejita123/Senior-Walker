@@ -7,68 +7,221 @@
     tools:context=".activity.Dog_bottom2">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <EditText
-            android:layout_width="wrap_content"
+
+        <ScrollView
+            android:visibility="invisible"
+            android:id="@+id/scroll_own"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="산책 일지"/>
+            android:layout_above="@+id/bottom_bar"
+            android:layout_weight="9">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/question1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="산책 중 모기,진드기 등의 위험이 있는 장소에 접근하셨습니까?(풀숲, 덤불, 고인 웅덩이 근처 등)"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <RadioGroup
+                    android:id="@+id/potential_danger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/danger_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="예" />
+
+                    <RadioButton
+                        android:id="@+id/danger_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="아니오" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="산책 중 물을 주셨습니까?"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <RadioGroup
+                    android:id="@+id/water"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/water_once"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1회" />
+
+                    <RadioButton
+                        android:id="@+id/water_twice_or_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2회 이상" />
+
+                    <RadioButton
+                        android:id="@+id/water_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="아니오" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="산책 중 강아지가 배변을 하였습니까?"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <RadioGroup
+                    android:id="@+id/defecation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/defecation_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="예" />
+
+                    <RadioButton
+                        android:id="@+id/defecation_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="아니오" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="다른 강아지를 마주쳤을 때, 접촉이 있었나요?"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <RadioGroup
+                    android:id="@+id/contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/contact_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="예" />
+
+                    <RadioButton
+                        android:id="@+id/contact_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="아니오" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/question5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="강아지는 활동적이었나요?"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <RadioGroup
+                    android:id="@+id/liveliness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/liveliness_high"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="활발" />
+
+                    <RadioButton
+                        android:id="@+id/liveliness_mid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="보통" />
+
+                    <RadioButton
+                        android:id="@+id/liveliness_low"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="저조" />
+                </RadioGroup>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <Button
+                android:id="@+id/Dog_main_btn1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="견주 모드"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="30dp" />
+
+            <Button
+                android:id="@+id/Dog_main_btn2"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="내 펫"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="30dp"/>
+
+            <Button
+                android:id="@+id/Dog_main_btn3"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="산책 등록"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="30dp"/>
+
+            <Button
+                android:id="@+id/Dog_main_btn4"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="산책일지"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_width="30dp"/>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
 
-        <Button
-            android:id="@+id/Dog_main_btn1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="견주 모드"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp" />
 
-        <Button
-            android:id="@+id/Dog_main_btn2"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="내 펫"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-
-        <Button
-            android:id="@+id/Dog_main_btn3"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="산책 등록"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-
-        <Button
-            android:id="@+id/Dog_main_btn4"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="산책일지"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

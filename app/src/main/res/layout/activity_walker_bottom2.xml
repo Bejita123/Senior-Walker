@@ -146,24 +146,25 @@
 
                     <RadioButton
                         android:id="@+id/liveliness_high"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="활발" />
 
                     <RadioButton
                         android:id="@+id/liveliness_mid"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="보통" />
 
                     <RadioButton
-                        android:id="@+id/contact_low"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/liveliness_low"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="저조" />
                 </RadioGroup>
 
                 <Button
+                    android:id="@+id/reportBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
