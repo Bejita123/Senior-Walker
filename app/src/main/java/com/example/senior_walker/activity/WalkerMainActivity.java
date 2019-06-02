@@ -42,9 +42,9 @@ import static com.example.senior_walker.Utill.showToast;
 
 
 public class WalkerMainActivity extends AppCompatActivity {
-    String name;
-    String age;
-    String phoneNumber;
+    String name = null;
+    String age= null;
+    String phoneNumber= null;
     String path;
     ImageView image;
     private FirebaseUser user;
@@ -105,16 +105,28 @@ public class WalkerMainActivity extends AppCompatActivity {
             }
         }
     };
+
     private void UIupdate() {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("user").document(user.getUid());
+        DocumentReference docRef = db.collection("pet").document(user.getUid());
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
 
-
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Memberinfo memberinfo = documentSnapshot.toObject(Memberinfo.class);
+                if(memberinfo!= null){
+                    name = memberinfo.getName();
+                    age = memberinfo.getAge();
+                    phoneNumber = memberinfo.getPhoneNumber();
+                    setData();
+                }
+            }
+        });
 
         storageRef.child("images/"+ user.getUid()+ "/profile.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -134,53 +146,41 @@ public class WalkerMainActivity extends AppCompatActivity {
 
             }
         });
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Memberinfo memberinfo = documentSnapshot.toObject(Memberinfo.class);
-                if(memberinfo!= null){
-                    name = memberinfo.getName();
-                    age = memberinfo.getAge();
-                    phoneNumber = memberinfo.getPhoneNumber();
-                    setData();
-                }
-            }
-        });
+
     }
 
     private void URLUpload(String path){
         Log.d("Before URL path upload"," path = " + path);
-        name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
-        age = ((EditText) findViewById(R.id.ageEditText)).getText().toString();
-        phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
 
-        if( path != null){
-            user = FirebaseAuth.getInstance().getCurrentUser();
+        if(path != null){
+            Log.d("URL path upload","");
+            name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
+            age = ((EditText) findViewById(R.id.ageEditText)).getText().toString();
+            phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber, path);
 
-            if (user != null) {
-                db.collection("user").document(user.getUid())
+            if(user != null) {
+                db.collection("pet").document(user.getUid())
                         .set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
 
-                                showToast(WalkerMainActivity.this, "회원정보 등록 성공");
-                              //  myStartActivity(WalkerMainActivity.class);
+                                Log.d(" URL", "path 정보 등록 성공");
+                                // myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                showToast(WalkerMainActivity.this, "회원정보 등록 실패");
+                                Log.d(" URL", "path 정보 등록 실패");
                                 // myStartActivity(WalkerMainActivity.class);
 
                             }
                         });
-            } else {
-                showToast(WalkerMainActivity.this, "회원정보를 모두 입력해주세요");
             }
         }
     }
@@ -190,34 +190,38 @@ public class WalkerMainActivity extends AppCompatActivity {
         phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
 
 
-        if (name.length() > 0 && age.length() > 0 && phoneNumber.length() > 9) {
-            user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (name.length() > 0 && age.length() > 0 &&  phoneNumber.length() > 0) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber);
+            Petinfo petinfo = new Petinfo(name, age, phoneNumber);
 
-            if (user != null) {
-                db.collection("user").document(user.getUid())
-                        .set(memberinfo)
+            if(user != null){
+                db.collection("pet").document(user.getUid())
+                        .set(petinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
 
-                                showToast(WalkerMainActivity.this, "회원정보 등록 성공");
-                                myStartActivity(WalkerMainActivity.class);
+                                showToast(WalkerMainActivity.this, "펫 정보 등록 성공");
+                                //   myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                showToast(WalkerMainActivity.this, "회원정보 등록 실패");
+                                showToast(WalkerMainActivity.this, "펫 정보 등록 실패");
                                 // myStartActivity(WalkerMainActivity.class);
 
                             }
                         });
-            } else {
-                showToast(WalkerMainActivity.this, "회원정보를 모두 입력해주세요");
+
             }
+
+        } else {
+
+            showToast(WalkerMainActivity.this, "펫 정보를 모두 입력해주세요");
         }
     }
     @Override

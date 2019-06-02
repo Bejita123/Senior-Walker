@@ -68,7 +68,18 @@ public class DogMainActivity extends AppCompatActivity {
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
 
-
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Petinfo petinfo = documentSnapshot.toObject(Petinfo.class);
+                if(petinfo!= null){
+                    dog = petinfo.getDog();
+                    weight = petinfo.getWeight();
+                    height = petinfo.getHeight();
+                    setData();
+                }
+            }
+        });
 
         storageRef.child("images/"+ user.getUid()+ "/dog.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -88,18 +99,7 @@ public class DogMainActivity extends AppCompatActivity {
 
             }
         });
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Petinfo petinfo = documentSnapshot.toObject(Petinfo.class);
-                if(petinfo!= null){
-                    dog = petinfo.getDog();
-                    weight = petinfo.getWeight();
-                    height = petinfo.getHeight();
-                    setData();
-                }
-            }
-        });
+
     }
     private void setData(){
 

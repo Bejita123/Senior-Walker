@@ -6,17 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".activity.Walker_bottom1">
 
-    <LinearLayout
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="산책 신청"/>
-    </LinearLayout>
+        android:id="@+id/listView">
+    </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
