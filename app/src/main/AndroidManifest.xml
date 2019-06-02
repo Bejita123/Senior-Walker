@@ -24,9 +24,11 @@
             android:value="AIzaSyA8EvDc_8gu37KbNM7e3DJLyMvecyrwVtM" />
 
         <activity android:name=".SpecificProfile" />
-        <activity android:name=".activity.DogMainActivity"></activity>
+        <activity android:name=".activity.DogMainActivity"/>
+        <activity android:name=".activity.Dog_bottom3" />
         <activity android:name=".activity.Dog_bottom2" />
         <activity android:name=".activity.Dog_bottom1" />
+        <activity android:name=".activity.Walker_bottom3" />
         <activity android:name=".activity.Walker_bottom2" />
         <activity android:name=".activity.Walker_bottom1" />
         <activity android:name=".activity.Member_information" />

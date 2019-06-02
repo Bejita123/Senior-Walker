@@ -1,74 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.Dog_bottom1">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        >
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="산책 등록"/>
-    </LinearLayout>
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="Menu1"
+        android:textSize="30sp"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="144dp"
+        tools:layout_editor_absoluteY="315dp" />
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-
-        <Button
-            android:id="@+id/Dog_main_btn1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="견주 모드"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp" />
-
-        <Button
-            android:id="@+id/Dog_main_btn2"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="내 펫"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-
-        <Button
-            android:id="@+id/Dog_main_btn3"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="산책 등록"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-
-        <Button
-            android:id="@+id/Dog_main_btn4"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="산책일지"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-    </LinearLayout>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/menu_bottom" />
 </android.support.constraint.ConstraintLayout>

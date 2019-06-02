@@ -1,74 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.DogMainActivity">
-    <LinearLayout
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        >
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="내 펫 정보"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/listView">
+    </ListView>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/menu_bottom" />
 
-        <Button
-            android:id="@+id/Dog_main_btn1"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="견주 모드"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp" />
-
-        <Button
-            android:id="@+id/Dog_main_btn2"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="내 펫"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-
-        <Button
-            android:id="@+id/Dog_main_btn3"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="산책 등록"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-
-        <Button
-            android:id="@+id/Dog_main_btn4"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@color/colorPrimary"
-            android:text="산책일지"
-            android:textColor="#FFFFFF"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_width="30dp"/>
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
