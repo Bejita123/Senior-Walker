@@ -40,7 +40,6 @@ public class DogMainActivity extends AppCompatActivity {
     String path;
     ImageView image;
 
-    private FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

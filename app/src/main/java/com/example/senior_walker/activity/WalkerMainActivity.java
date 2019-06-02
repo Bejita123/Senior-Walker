@@ -45,9 +45,7 @@ public class WalkerMainActivity extends AppCompatActivity {
     String name = null;
     String age= null;
     String phoneNumber= null;
-    String path;
     ImageView image;
-    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +108,7 @@ public class WalkerMainActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("pet").document(user.getUid());
+        DocumentReference docRef = db.collection("user").document(user.getUid());
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
@@ -147,6 +145,7 @@ public class WalkerMainActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void URLUpload(String path){
@@ -163,7 +162,7 @@ public class WalkerMainActivity extends AppCompatActivity {
             Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber, path);
 
             if(user != null) {
-                db.collection("pet").document(user.getUid())
+                db.collection("user").document(user.getUid())
                         .set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -194,24 +193,23 @@ public class WalkerMainActivity extends AppCompatActivity {
         if (name.length() > 0 && age.length() > 0 &&  phoneNumber.length() > 0) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-            Petinfo petinfo = new Petinfo(name, age, phoneNumber);
+            Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber);
 
             if(user != null){
-                db.collection("pet").document(user.getUid())
-                        .set(petinfo)
+                db.collection("user").document(user.getUid())
+                        .set(memberinfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
 
-                                showToast(WalkerMainActivity.this, "펫 정보 등록 성공");
+                                showToast(WalkerMainActivity.this, "회원 정보 등록 성공");
                                 //   myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                showToast(WalkerMainActivity.this, "펫 정보 등록 실패");
+                                showToast(WalkerMainActivity.this, "회원 정보 등록 실패");
                                 // myStartActivity(WalkerMainActivity.class);
 
                             }
@@ -221,7 +219,7 @@ public class WalkerMainActivity extends AppCompatActivity {
 
         } else {
 
-            showToast(WalkerMainActivity.this, "펫 정보를 모두 입력해주세요");
+            showToast(WalkerMainActivity.this, "회원 정보를 모두 입력해주세요");
         }
     }
     @Override
