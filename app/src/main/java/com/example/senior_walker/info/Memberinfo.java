@@ -1,4 +1,4 @@
-package com.example.senior_walker;
+package com.example.senior_walker.info;
 
 import android.widget.EditText;
 

@@ -1,4 +1,4 @@
-package com.example.senior_walker;
+package com.example.senior_walker.info;
 
 public class Petinfo {
 

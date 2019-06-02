@@ -23,7 +23,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA8EvDc_8gu37KbNM7e3DJLyMvecyrwVtM" />
 
-        <activity android:name=".SpecificProfile" />
+        <activity android:name=".activity.SpecificProfile" />
         <activity android:name=".activity.DogMainActivity"></activity>
         <activity android:name=".activity.Dog_bottom2" />
         <activity android:name=".activity.Dog_bottom1" />

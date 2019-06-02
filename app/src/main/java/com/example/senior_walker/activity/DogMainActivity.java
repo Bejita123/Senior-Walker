@@ -14,8 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.senior_walker.Memberinfo;
-import com.example.senior_walker.Petinfo;
+import com.example.senior_walker.info.Petinfo;
 import com.example.senior_walker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
