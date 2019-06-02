@@ -1,4 +1,4 @@
-package com.example.senior_walker.info;
+package com.mp.senior_walker.info;
 
 public class Walkinfo {
     String date;

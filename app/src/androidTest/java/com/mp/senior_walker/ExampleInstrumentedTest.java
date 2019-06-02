@@ -1,4 +1,4 @@
-package com.example.senior_walker;
+package com.mp.senior_walker;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

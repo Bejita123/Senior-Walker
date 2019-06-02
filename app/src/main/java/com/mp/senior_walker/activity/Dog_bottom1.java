@@ -1,4 +1,4 @@
-package com.example.senior_walker.activity;
+package com.mp.senior_walker.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -7,15 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.senior_walker.R;
-import com.example.senior_walker.info.Walkinfo;
+import com.mp.senior_walker.R;
+import com.mp.senior_walker.info.Walkinfo;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import static com.example.senior_walker.Utill.showToast;
+import static com.mp.senior_walker.Utill.showToast;
 
 public class Dog_bottom1 extends AppCompatActivity {
 
@@ -29,8 +29,6 @@ public class Dog_bottom1 extends AppCompatActivity {
         findViewById(R.id.Dog_main_btn4).setOnClickListener(onClickListener);
         findViewById(R.id.Dog_main_btn4).setOnClickListener(onClickListener);
         findViewById(R.id.regWalkBtn).setOnClickListener(onClickListener);
-
-
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -87,7 +85,6 @@ public class Dog_bottom1 extends AppCompatActivity {
 
                                 }
                             });
-
                 }
 
             } else {

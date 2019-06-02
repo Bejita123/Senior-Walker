@@ -2,12 +2,12 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/specific_profile">
     <!--tools:context=".SpecificProfile"-->
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="405dp">
             <LinearLayout
-                android:background="@drawable/gradientbackground"
+                android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:orientation="vertical">
@@ -28,6 +28,7 @@
                     android:layout_height="150dp"
                     android:src="@drawable/mypic"/>
                 <TextView
+                    android:id="@+id/specific_name"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
@@ -53,20 +54,22 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="나이"
-                            android:textSize="20sp"
-                            />
+                            android:text="견종"
+                            android:textSize="20sp" />
+
                         <TextView
+                            android:id="@+id/specific_dog"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
                             android:text="24"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="20sp"
-                            android:paddingTop="10dp"
-                            android:textColor="@color/startBlue"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                     <LinearLayout
@@ -75,20 +78,22 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="지역"
-                            android:textSize="20sp"
-                            />
+                            android:text="키"
+                            android:textSize="20sp" />
+
                         <TextView
+                            android:id="@+id/specific_height"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
                             android:text="경기도"
-                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="20sp"
-                            android:paddingTop="10dp"
-                            android:textColor="@color/startBlue"/>
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                     <LinearLayout
@@ -100,17 +105,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="취미"
+                            android:text="무게"
                             android:textSize="20sp"
                             />
+
                         <TextView
+                            android:id="@+id/specific_weight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="산책"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
                             android:paddingTop="10dp"
-                            android:textColor="@color/startBlue"/>
+                            android:text="산책"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -124,23 +131,7 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_marginTop="45dp">
-            <LinearLayout
-                android:orientation="horizontal"
-                android:paddingLeft="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_email_black_24dp"/>
-                <TextView
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Wiliam@gmail.com"/>
-            </LinearLayout>
+
             <LinearLayout
                 android:layout_marginTop="25dp"
                 android:orientation="horizontal"
@@ -150,7 +141,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_phone_android_black_24dp"/>
+                    app:srcCompat="@drawable/ic_phone_android_black_24dp"/>
                 <TextView
                     android:textStyle="bold"
 
@@ -160,55 +151,18 @@
                     android:paddingLeft="20dp"
                     android:text="+266 225 225"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_group_add_black_24dp"/>
-                <TextView
-                    android:textStyle="bold"
 
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Add to group"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="25dp"
-                android:orientation="horizontal"
-                android:paddingLeft="25dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_forum_black_24dp"/>
-                <TextView
-                    android:textStyle="bold"
-
-                    android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:text="Show all comments"/>
-            </LinearLayout>
         </LinearLayout>
 
         <Button
             android:id="@+id/btn"
-            android:textColor="#fff"
-            android:background="@drawable/buttonstyleithgradient"
-            android:layout_marginTop="35dp"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="신청하기"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="35dp"
+            android:background="@color/colorPrimary"
+            android:text="신청하기"
+            android:textColor="#fff" />
 
     </LinearLayout>
 

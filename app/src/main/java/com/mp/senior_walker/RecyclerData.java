@@ -1,4 +1,4 @@
-package com.example.senior_walker;
+package com.mp.senior_walker;
 
 public class RecyclerData {
     private String title;

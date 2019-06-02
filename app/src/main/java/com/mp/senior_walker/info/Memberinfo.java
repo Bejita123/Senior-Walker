@@ -1,6 +1,4 @@
-package com.example.senior_walker.info;
-
-import android.widget.EditText;
+package com.mp.senior_walker.info;
 
 public class Memberinfo {
 

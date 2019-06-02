@@ -1,4 +1,4 @@
-package com.example.senior_walker.activity;
+package com.mp.senior_walker.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,14 +10,14 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.senior_walker.R;
+import com.mp.senior_walker.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import static com.example.senior_walker.Utill.showToast;
+import static com.mp.senior_walker.Utill.showToast;
 
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;

@@ -1,21 +1,29 @@
-package com.example.senior_walker.activity;
+package com.mp.senior_walker.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.senior_walker.info.Memberinfo;
-import com.example.senior_walker.R;
+import com.mp.senior_walker.MyItem;
+import com.mp.senior_walker.info.Memberinfo;
+import com.mp.senior_walker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,8 +37,9 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 
-import static com.example.senior_walker.Utill.showToast;
+import static com.mp.senior_walker.Utill.showToast;
 
 
 public class WalkerMainActivity extends AppCompatActivity {
@@ -145,31 +154,22 @@ public class WalkerMainActivity extends AppCompatActivity {
 
         if(path != null){
             Log.d("URL path upload","");
-            name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
-            age = ((EditText) findViewById(R.id.ageEditText)).getText().toString();
-            phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
+
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber, path);
-
             if(user != null) {
-                db.collection("user").document(user.getUid())
-                        .set(memberinfo)
+                DocumentReference washingtonRef = db.collection("user").document(user.getUid());
+                washingtonRef
+                        .update("photoUrl", path)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
-                                Log.d(" URL", "path 정보 등록 성공");
-                                // myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.d(" URL", "path 정보 등록 실패");
-                                // myStartActivity(WalkerMainActivity.class);
-
                             }
                         });
             }
@@ -188,22 +188,17 @@ public class WalkerMainActivity extends AppCompatActivity {
             Memberinfo memberinfo = new Memberinfo(name, age, phoneNumber);
 
             if(user != null){
-                db.collection("user").document(user.getUid())
-                        .set(memberinfo)
+                DocumentReference washingtonRef = db.collection("user").document(user.getUid());
+                washingtonRef
+                        .update("age", age,"name",name,"phoneNumber",phoneNumber)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
-                                showToast(WalkerMainActivity.this, "회원 정보 등록 성공");
-                                //   myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                showToast(WalkerMainActivity.this, "회원 정보 등록 실패");
-                                // myStartActivity(WalkerMainActivity.class);
-
                             }
                         });
 

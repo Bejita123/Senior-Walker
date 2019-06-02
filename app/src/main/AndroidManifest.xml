@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.senior_walker">
+    package="com.mp.senior_walker">
 
     <permission
-        android:name="com.example.senior_walker.googlemap.locationapi.maps.permission.MAPS_RECEIVE"
+        android:name="com.mp.senior_walker.googlemap.locationapi.maps.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -23,15 +23,15 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA8EvDc_8gu37KbNM7e3DJLyMvecyrwVtM" />
 
-        <activity android:name=".activity.SpecificProfile" />
-        <activity android:name=".activity.DogMainActivity"></activity>
-        <activity android:name=".activity.Dog_bottom2" />
-        <activity android:name=".activity.Dog_bottom1" />
-        <activity android:name=".activity.Walker_bottom2" />
-        <activity android:name=".activity.Walker_bottom1" />
-        <activity android:name=".activity.WalkerMainActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name="com.mp.senior_walker.activity.SpecificProfile" />
+        <activity android:name="com.mp.senior_walker.activity.DogMainActivity"></activity>
+        <activity android:name="com.mp.senior_walker.activity.Dog_bottom2" />
+        <activity android:name="com.mp.senior_walker.activity.Dog_bottom1" />
+        <activity android:name="com.mp.senior_walker.activity.Walker_bottom2" />
+        <activity android:name="com.mp.senior_walker.activity.Walker_bottom1" />
+        <activity android:name="com.mp.senior_walker.activity.WalkerMainActivity" />
+        <activity android:name="com.mp.senior_walker.activity.RegisterActivity" />
+        <activity android:name="com.mp.senior_walker.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

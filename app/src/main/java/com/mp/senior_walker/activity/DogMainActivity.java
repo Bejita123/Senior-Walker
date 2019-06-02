@@ -1,4 +1,4 @@
-package com.example.senior_walker.activity;
+package com.mp.senior_walker.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,8 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.senior_walker.info.Petinfo;
-import com.example.senior_walker.R;
+import com.mp.senior_walker.info.Petinfo;
+import com.mp.senior_walker.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +30,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-import static com.example.senior_walker.Utill.showToast;
+import static com.mp.senior_walker.Utill.showToast;
 
 public class DogMainActivity extends AppCompatActivity {
     String dog;
@@ -144,31 +144,24 @@ public class DogMainActivity extends AppCompatActivity {
 
         if(path != null){
             Log.d("URL path upload","");
-            dog = ((EditText) findViewById(R.id.dogEditText)).getText().toString();
-            weight = ((EditText) findViewById(R.id.weightEditText)).getText().toString();
-            height = ((EditText) findViewById(R.id.hightEditText)).getText().toString();
+
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            Petinfo petinfo = new Petinfo(dog, height, weight, path);
 
             if(user != null) {
-                db.collection("pet").document(user.getUid())
-                        .set(petinfo)
+
+                DocumentReference washingtonRef = db.collection("pet").document(user.getUid());
+                washingtonRef
+                        .update("photoUrl", path)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
-                                Log.d(" URL", "path 정보 등록 성공");
-                               // myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.d(" URL", "path 정보 등록 실패");
-                                // myStartActivity(WalkerMainActivity.class);
-
                             }
                         });
             }
@@ -188,22 +181,17 @@ public class DogMainActivity extends AppCompatActivity {
             Petinfo petinfo = new Petinfo(dog, height, weight);
 
             if(user != null){
-                db.collection("pet").document(user.getUid())
-                        .set(petinfo)
+                DocumentReference washingtonRef = db.collection("pet").document(user.getUid());
+                washingtonRef
+                        .update("dog", dog, "height", height, "weight", weight)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
-                                showToast(DogMainActivity.this, "펫 정보 등록 성공");
-                             //   myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                showToast(DogMainActivity.this, "펫 정보 등록 실패");
-                                // myStartActivity(WalkerMainActivity.class);
-
                             }
                         });
 
