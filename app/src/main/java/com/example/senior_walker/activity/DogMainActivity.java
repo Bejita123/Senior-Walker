@@ -75,7 +75,9 @@ public class DogMainActivity extends AppCompatActivity {
             public void onSuccess(Uri uri) {
                 // Got the download URL for 'users/me/profile.png'
                 Log.d("성공", uri.toString());
-                path = uri.toString();
+                URLUpload(uri.toString());
+                Log.d("URL  uploader call", " ");
+
                 Glide.with(DogMainActivity.this).load(uri.toString()).centerCrop().override(500).into(image);
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -139,13 +141,14 @@ public class DogMainActivity extends AppCompatActivity {
             }
         }
     };
-    private void updateProfile() {
-        dog = ((EditText) findViewById(R.id.dogEditText)).getText().toString();
-        weight = ((EditText) findViewById(R.id.weightEditText)).getText().toString();
-        height = ((EditText) findViewById(R.id.hightEditText)).getText().toString();
-
+    private void URLUpload(String path){
+        Log.d("Before URL path upload"," path = " + path);
 
         if(path != null){
+            Log.d("URL path upload","");
+            dog = ((EditText) findViewById(R.id.dogEditText)).getText().toString();
+            weight = ((EditText) findViewById(R.id.weightEditText)).getText().toString();
+            height = ((EditText) findViewById(R.id.hightEditText)).getText().toString();
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -158,21 +161,29 @@ public class DogMainActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
 
-                                showToast(DogMainActivity.this, "펫 정보 등록 성공");
-                                myStartActivity(WalkerMainActivity.class);
+                                Log.d(" URL", "path 정보 등록 성공");
+                               // myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                showToast(DogMainActivity.this, "펫 정보 등록 실패");
+                                Log.d(" URL", "path 정보 등록 실패");
                                 // myStartActivity(WalkerMainActivity.class);
 
                             }
                         });
             }
         }
-        else if (dog.length() > 0 && weight.length() > 0 &&  height.length() > 0) {
+    }
+    private void updateProfile() {
+        dog = ((EditText) findViewById(R.id.dogEditText)).getText().toString();
+        weight = ((EditText) findViewById(R.id.weightEditText)).getText().toString();
+        height = ((EditText) findViewById(R.id.hightEditText)).getText().toString();
+
+
+
+        if (dog.length() > 0 && weight.length() > 0 &&  height.length() > 0) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -186,7 +197,7 @@ public class DogMainActivity extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
 
                                 showToast(DogMainActivity.this, "펫 정보 등록 성공");
-                                myStartActivity(WalkerMainActivity.class);
+                             //   myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {

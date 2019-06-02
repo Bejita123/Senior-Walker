@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.senior_walker.Memberinfo;
+import com.example.senior_walker.Petinfo;
 import com.example.senior_walker.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,45 +64,7 @@ public class WalkerMainActivity extends AppCompatActivity {
         UIupdate();
     }
 
-    private void UIupdate() {
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference docRef = db.collection("user").document(user.getUid());
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference();
-
-
-
-        storageRef.child("images/"+ user.getUid()+ "/profile.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                // Got the download URL for 'users/me/profile.png'
-                Log.d("성공", uri.toString());
-                path = uri.toString();
-                Glide.with(WalkerMainActivity.this).load(uri.toString()).centerCrop().override(500).into(image);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // Handle any errors
-                Log.d("URL 파일 없음", "  ");
-
-            }
-        });
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Memberinfo memberinfo = documentSnapshot.toObject(Memberinfo.class);
-                if(memberinfo!= null){
-                    name = memberinfo.getName();
-                    age = memberinfo.getAge();
-                    phoneNumber = memberinfo.getPhoneNumber();
-                    setData();
-                }
-            }
-        });
-    }
     private void setData(){
 
         EditText nameEdit = (EditText) findViewById(R.id.nameEditText);
@@ -142,8 +105,51 @@ public class WalkerMainActivity extends AppCompatActivity {
             }
         }
     };
+    private void UIupdate() {
 
-    private void updateProfile() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("user").document(user.getUid());
+
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+
+
+
+        storageRef.child("images/"+ user.getUid()+ "/profile.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                // Got the download URL for 'users/me/profile.png'
+                Log.d("성공", uri.toString());
+                URLUpload(uri.toString());
+                Log.d("URL  uploader call", " ");
+
+                Glide.with(WalkerMainActivity.this).load(uri.toString()).centerCrop().override(500).into(image);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+                Log.d("URL 파일 없음", "  ");
+
+            }
+        });
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Memberinfo memberinfo = documentSnapshot.toObject(Memberinfo.class);
+                if(memberinfo!= null){
+                    name = memberinfo.getName();
+                    age = memberinfo.getAge();
+                    phoneNumber = memberinfo.getPhoneNumber();
+                    setData();
+                }
+            }
+        });
+    }
+
+    private void URLUpload(String path){
+        Log.d("Before URL path upload"," path = " + path);
         name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
         age = ((EditText) findViewById(R.id.ageEditText)).getText().toString();
         phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
@@ -162,7 +168,7 @@ public class WalkerMainActivity extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
 
                                 showToast(WalkerMainActivity.this, "회원정보 등록 성공");
-                                myStartActivity(WalkerMainActivity.class);
+                              //  myStartActivity(WalkerMainActivity.class);
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -177,8 +183,14 @@ public class WalkerMainActivity extends AppCompatActivity {
                 showToast(WalkerMainActivity.this, "회원정보를 모두 입력해주세요");
             }
         }
-        else if (name.length() > 0 && age.length() > 0 && phoneNumber.length() > 9) {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    }
+    private void updateProfile() {
+        name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
+        age = ((EditText) findViewById(R.id.ageEditText)).getText().toString();
+        phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
+
+
+        if (name.length() > 0 && age.length() > 0 && phoneNumber.length() > 9) {
             user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -261,9 +273,6 @@ public class WalkerMainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 
 
